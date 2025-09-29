@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BrainVault - Physics Problem Solving Platform</title>
+  <meta name="description" content="BrainVault helps you master physics with step-by-step formula workspace, rich problem bank, leaderboards, and tournaments." />
+  <link rel="canonical" href="https://brainvault.example.com/" />
+  <meta property="og:title" content="BrainVault - Master Physics by Solving" />
+  <meta property="og:description" content="Solve interactive physics problems, earn XP, compete in tournaments, and level up." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brainvault.example.com/" />
+  <meta property="og:image" content="/assets/og-cover.png" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="robots" href="/robots.txt" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <strong>🧠 BrainVault</strong>
+      <a href="./index.html">Dashboard</a>
+      <a href="./problem_selection.html">Practice</a>
+      <a href="./leaderboard.html">Leaderboard</a>
+      <a href="./docs.html">Docs</a>
+      <a href="./profile.html">Profile</a>
+      <a href="./hint_store.html">Hint Store</a>
+      <span style="margin-left:auto" id="auth-links">
+        <a href="./login.html">Login</a> · <a href="./register.html">Register</a>
+      </span>
+    </nav>
+  </header>
+  <main class="main-content">
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div class="container">
+        <div class="welcome-grid">
+          <div class="welcome-text">
+            <h1>Welcome back, <span id="userName">Physicist</span>! 🚀</h1>
+            <p>Ready to solve some challenging physics problems and level up your skills?</p>
+            
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+              <div class="stat-item">
+                <div class="stat-value" id="userLevel">1</div>
+                <div class="stat-label">Level</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="userXP">0</div>
+                <div class="stat-label">XP</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="hintTokens">5</div>
+                <div class="stat-label">Hint Tokens</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value" id="problemsSolved">0</div>
+                <div class="stat-label">Problems Solved</div>
+              </div>
+            </div>
+
+            <div class="action-buttons">
+              <a href="./problem_selection.html" class="btn btn-primary">Start Solving</a>
+              <a href="./profile.html" class="btn btn-secondary">View Profile</a>
+            </div>
+          </div>
+          
+          <div class="welcome-visual">
+            <div class="level-progress-card">
+              <h3>Level Progress</h3>
+              <div class="progress-info">
+                <span>Level <span id="currentLevel">1</span></span>
+                <span><span id="currentXP">0</span> / <span id="nextLevelXP">100</span> XP</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+              </div>
+              <p id="xpToNext">100 XP to next level!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Activity Section -->
+    <section class="activity-section">
+      <div class="container">
+        <h2>Recent Activity</h2>
+        <div class="activity-grid">
+          <div class="activity-card">
+            <h3>📊 Today's Progress</h3>
+            <div class="progress-stats">
+              <div class="progress-item">
+                <span>Problems Solved</span>
+                <strong id="todayProblems">0</strong>
+              </div>
+              <div class="progress-item">
+                <span>XP Gained</span>
+                <strong id="todayXP">0</strong>
+              </div>
+              <div class="progress-item">
+                <span>Time Spent</span>
+                <strong id="todayTime">0 min</strong>
+              </div>
+            </div>
+          </div>
+          
+          <div class="activity-card">
+            <h3>🏆 Latest Badges</h3>
+            <div class="badge-list" id="latestBadges">
+              <div class="no-badges">Complete problems to earn badges!</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access-section">
+      <div class="container">
+        <h2>Quick Access</h2>
+        <div class="quick-access-grid">
+          <a href="./problem_selection.html?difficulty=easy" class="quick-card easy">
+            <div class="card-icon">🚀</div>
+            <h3>Easy Mode</h3>
+            <p>Perfect for beginners!</p>
+            <span class="card-reward">10 XP</span>
+          </a>
+          
+          <a href="./problem_selection.html?difficulty=medium" class="quick-card medium">
+            <div class="card-icon">⚡</div>
+            <h3>Medium Mode</h3>
+            <p>Level up your skills!</p>
+            <span class="card-reward">25 XP</span>
+          </a>
+          
+          <a href="./problem_selection.html?difficulty=hard" class="quick-card hard">
+            <div class="card-icon">🔥</div>
+            <h3>Hard Mode</h3>
+            <p>For real heroes!</p>
+            <span class="card-reward">50 XP</span>
+          </a>
+          
+          <a href="./problem_selection.html?difficulty=expert" class="quick-card expert">
+            <div class="card-icon">🏆</div>
+            <h3>Expert Mode</h3>
+            <p>Ultimate challenge!</p>
+            <span class="card-reward">100 XP</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaderboard Preview -->
+    <section class="leaderboard-preview-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>🏆 Leaderboard Preview</h2>
+          <a href="./leaderboard.html" class="btn btn-outline">View Full</a>
+        </div>
+        
+        <div class="leaderboard-preview" id="leaderboardPreview">
+          <div class="loading">Loading leaderboard...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>🧠 BrainVault</h3>
+          <p>Master physics through interactive problem solving</p>
+        </div>
+        <div class="footer-section">
+          <h4>Features</h4>
+          <ul>
+            <li><a href="./problem_selection.html">Problem Library</a></li>
+            <li><a href="./leaderboard.html">Leaderboard</a></li>
+            <li><a href="./hint_store.html">Hint Store</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Account</h4>
+          <ul>
+            <li><a href="./profile.html">Profile</a></li>
+            <li><a href="./login.html">Login</a></li>
+            <li><a href="./register.html">Sign Up</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 BrainVault. Built with ❤️ for physics enthusiasts.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="./js/auth.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

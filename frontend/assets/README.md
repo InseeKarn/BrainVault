@@ -1,0 +1,1 @@
+This folder stores static assets like images (logos, icons), fonts, and any downloadable files used by the frontend.

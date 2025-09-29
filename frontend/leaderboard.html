@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leaderboard • BrainVault</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <strong>🧠 BrainVault</strong>
+    <a href="./index.html">Dashboard</a>
+    <a href="./problem_selection.html">Practice</a>
+    <a href="./docs.html">Docs</a>
+    <a href="./profile.html">Profile</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="card">
+    <h2>Leaderboard</h2>
+    <div style="display:flex; gap:8px;">
+      <label>Branch</label>
+      <select id="lb-branch">
+        <option value="Global">Global</option>
+        <option>Mechanics</option>
+        <option>Thermodynamics</option>
+        <option>Electromagnetism</option>
+        <option>Optics</option>
+        <option>Modern Physics</option>
+        <option>Acoustics</option>
+        <option>Astrophysics</option>
+        <option>Condensed Matter</option>
+        <option>Plasma</option>
+        <option>Biophysics</option>
+        <option>Geophysics</option>
+        <option>Computational Physics</option>
+      </select>
+      <button class="btn" id="lb-refresh">Refresh</button>
+    </div>
+    <ul id="lb-list" class="list" style="margin-top:12px;"></ul>
+  </div>
+</main>
+<script src="./js/leaderboard.js"></script>
+</body>
+</html>

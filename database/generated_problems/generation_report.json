@@ -1,0 +1,157 @@
+{
+  "generation_summary": {
+    "timestamp": "2025-09-29T08:00:21.509Z",
+    "total_problems": 6000,
+    "total_time_seconds": 0,
+    "target_per_branch": 500,
+    "branches": 12,
+    "success_rate": 100
+  },
+  "branch_results": {
+    "mechanics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "thermodynamics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "electromagnetism": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "optics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "modern_physics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "acoustics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "astrophysics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "condensed_matter": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "plasma": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "biophysics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "geophysics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    },
+    "computational_physics": {
+      "success": true,
+      "count": 500,
+      "time_seconds": 0
+    }
+  },
+  "configuration": {
+    "problems_per_branch": 500,
+    "difficulty_distribution": {
+      "easy": 150,
+      "medium": 200,
+      "hard": 100,
+      "expert": 50
+    },
+    "branches": [
+      "mechanics",
+      "thermodynamics",
+      "electromagnetism",
+      "optics",
+      "modern_physics",
+      "acoustics",
+      "astrophysics",
+      "condensed_matter",
+      "plasma",
+      "biophysics",
+      "geophysics",
+      "computational_physics"
+    ]
+  },
+  "file_locations": [
+    {
+      "branch": "mechanics",
+      "problems_file": "mechanics_problems.json",
+      "summary_file": "mechanics_summary.json"
+    },
+    {
+      "branch": "thermodynamics",
+      "problems_file": "thermodynamics_problems.json",
+      "summary_file": "thermodynamics_summary.json"
+    },
+    {
+      "branch": "electromagnetism",
+      "problems_file": "electromagnetism_problems.json",
+      "summary_file": "electromagnetism_summary.json"
+    },
+    {
+      "branch": "optics",
+      "problems_file": "optics_problems.json",
+      "summary_file": "optics_summary.json"
+    },
+    {
+      "branch": "modern_physics",
+      "problems_file": "modern_physics_problems.json",
+      "summary_file": "modern_physics_summary.json"
+    },
+    {
+      "branch": "acoustics",
+      "problems_file": "acoustics_problems.json",
+      "summary_file": "acoustics_summary.json"
+    },
+    {
+      "branch": "astrophysics",
+      "problems_file": "astrophysics_problems.json",
+      "summary_file": "astrophysics_summary.json"
+    },
+    {
+      "branch": "condensed_matter",
+      "problems_file": "condensed_matter_problems.json",
+      "summary_file": "condensed_matter_summary.json"
+    },
+    {
+      "branch": "plasma",
+      "problems_file": "plasma_problems.json",
+      "summary_file": "plasma_summary.json"
+    },
+    {
+      "branch": "biophysics",
+      "problems_file": "biophysics_problems.json",
+      "summary_file": "biophysics_summary.json"
+    },
+    {
+      "branch": "geophysics",
+      "problems_file": "geophysics_problems.json",
+      "summary_file": "geophysics_summary.json"
+    },
+    {
+      "branch": "computational_physics",
+      "problems_file": "computational_physics_problems.json",
+      "summary_file": "computational_physics_summary.json"
+    }
+  ]
+}

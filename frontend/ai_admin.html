@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Problem Generator - BrainVault Admin</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>🧠 BrainVault Admin</h2>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="problem_selection.html" class="nav-link">Problems</a>
+                <a href="#" class="nav-link active">AI Generator</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+            </div>
+            <div class="nav-auth" id="navAuth">
+                <button class="btn btn-outline" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- AI Generator Header -->
+        <section class="ai-header-section">
+            <div class="container">
+                <div class="ai-header">
+                    <div class="ai-title">
+                        <h1>🤖 AI Problem Generator</h1>
+                        <p>Create unlimited physics problems using artificial intelligence!</p>
+                    </div>
+                    <div class="ai-stats" id="aiStats">
+                        <div class="stat-card">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Problems Available</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" id="totalFormulas">24</span>
+                            <span class="stat-label">Physics Formulas</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Difficulty Levels</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Generator Controls -->
+        <section class="ai-controls-section">
+            <div class="container">
+                <div class="ai-control-panel card speech-bubble">
+                    <h2>🎛️ Generation Controls</h2>
+                    
+                    <div class="control-grid">
+                        <!-- Branch Selection -->
+                        <div class="control-group">
+                            <label for="branchSelect">Physics Branch</label>
+                            <select id="branchSelect" class="form-select">
+                                <option value="">Random Branch</option>
+                                <option value="mechanics">Mechanics</option>
+                                <option value="thermodynamics">Thermodynamics</option>
+                                <option value="electromagnetism">Electromagnetism</option>
+                                <option value="optics">Optics</option>
+                            </select>
+                        </div>
+
+                        <!-- Difficulty Selection -->
+                        <div class="control-group">
+                            <label for="difficultySelect">Difficulty Level</label>
+                            <select id="difficultySelect" class="form-select">
+                                <option value="easy">Easy (10 XP)</option>
+                                <option value="medium" selected>Medium (25 XP)</option>
+                                <option value="hard">Hard (50 XP)</option>
+                                <option value="expert">Expert (100 XP)</option>
+                            </select>
+                        </div>
+
+                        <!-- Problem Count -->
+                        <div class="control-group">
+                            <label for="problemCount">Number of Problems</label>
+                            <input type="number" id="problemCount" min="1" max="10" value="3" class="form-input">
+                            <small>Max 10 problems per generation</small>
+                        </div>
+
+                        <!-- Generation Type -->
+                        <div class="control-group">
+                            <label>Generation Type</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="genType" value="single" checked>
+                                    <span>Single Generation</span>
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="genType" value="batch">
+                                    <span>Batch Generation</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button id="generateBtn" class="btn btn-super">
+                            🚀 Generate Problems!
+                        </button>
+                        <button id="batchBtn" class="btn btn-primary" style="display: none;">
+                            📦 Generate Batch (20 problems)
+                        </button>
+                        <button id="clearBtn" class="btn btn-secondary">
+                            🗑️ Clear Results
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Generation Results -->
+        <section class="ai-results-section">
+            <div class="container">
+                <div id="generationStatus" class="status-display" style="display: none;">
+                    <div class="loading-animation">
+                        <div class="loading-spinner">🤖</div>
+                        <p>AI is thinking... Generating awesome physics problems!</p>
+                    </div>
+                </div>
+
+                <div id="resultsContainer" class="results-container" style="display: none;">
+                    <div class="results-header">
+                        <h2>🎉 Generated Problems</h2>
+                        <div class="results-summary">
+                            <span id="resultsCount">0</span> problems generated in <span id="generationTime">0</span>ms
+                        </div>
+                    </div>
+                    
+                    <div id="problemsList" class="problems-list">
+                        <!-- Generated problems will appear here -->
+                    </div>
+
+                    <div class="results-actions">
+                        <button id="exportBtn" class="btn btn-success">
+                            📁 Export to JSON
+                        </button>
+                        <button id="addToDbBtn" class="btn btn-primary">
+                            💾 Add to Database
+                        </button>
+                        <button id="previewBtn" class="btn btn-secondary">
+                            👁️ Preview Problems
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Capabilities Info -->
+        <section class="ai-info-section">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-card card">
+                        <div class="info-icon">⚙️</div>
+                        <h3>Smart Generation</h3>
+                        <p>AI analyzes physics formulas and creates realistic problems with proper units and calculations.</p>
+                        <ul>
+                            <li>Realistic value ranges</li>
+                            <li>Unit consistency</li>
+                            <li>Formula verification</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card card">
+                        <div class="info-icon">🎯</div>
+                        <h3>Context-Aware</h3>
+                        <p>Problems include appropriate scenarios, objects, and conditions based on physics branch.</p>
+                        <ul>
+                            <li>Branch-specific contexts</li>
+                            <li>Difficulty scaling</li>
+                            <li>Educational scenarios</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card card">
+                        <div class="info-icon">💡</div>
+                        <h3>Hint Generation</h3>
+                        <p>Automatically generates helpful hints and solution steps for each problem.</p>
+                        <ul>
+                            <li>Multi-level hints</li>
+                            <li>Formula guidance</li>
+                            <li>Step-by-step support</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card card">
+                        <div class="info-icon">📊</div>
+                        <h3>Quality Control</h3>
+                        <p>Built-in validation ensures problems are solvable and educationally valuable.</p>
+                        <ul>
+                            <li>Formula validation</li>
+                            <li>Answer verification</li>
+                            <li>Educational standards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Problem Preview Modal -->
+    <div id="previewModal" class="modal" style="display: none;">
+        <div class="modal-content card">
+            <div class="modal-header">
+                <h2>🔍 Problem Preview</h2>
+                <button class="modal-close" onclick="closePreview()">&times;</button>
+            </div>
+            <div id="previewContent" class="modal-body">
+                <!-- Preview content will be inserted here -->
+            </div>
+            <div class="modal-footer">
+                <button onclick="closePreview()" class="btn btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🤖 AI Generator</h3>
+                    <p>Powered by advanced physics knowledge and smart algorithms</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Unlimited problem generation</li>
+                        <li>4 difficulty levels</li>
+                        <li>Smart context generation</li>
+                        <li>Educational hints</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li>24/7 AI availability</li>
+                        <li>Quality assurance</li>
+                        <li>Educational standards</li>
+                        <li>Continuous learning</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BrainVault AI. Empowering physics education with artificial intelligence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script src="js/ai_admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brainvault.example.com/sitemap.xml

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://brainvault.example.com/</loc></url>
+  <url><loc>https://brainvault.example.com/login.html</loc></url>
+  <url><loc>https://brainvault.example.com/register.html</loc></url>
+  <url><loc>https://brainvault.example.com/problem_selection.html</loc></url>
+  <url><loc>https://brainvault.example.com/problem_workspace.html</loc></url>
+  <url><loc>https://brainvault.example.com/leaderboard.html</loc></url>
+  <url><loc>https://brainvault.example.com/profile.html</loc></url>
+  <url><loc>https://brainvault.example.com/hint_store.html</loc></url>
+  <url><loc>https://brainvault.example.com/tournament.html</loc></url>
+</urlset>

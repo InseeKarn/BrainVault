@@ -1,0 +1,122 @@
+[
+  {
+    "id": "OER_MIT_001",
+    "branch": "Mechanics",
+    "subbranch": "Kinematics",
+    "difficulty": "Medium",
+    "source": "MIT OCW",
+    "question": "A car accelerates from rest to 30 m/s in 10 seconds. Find the acceleration.",
+    "given": { "u": 0, "v": 30, "t": 10 },
+    "answer": { "formula": "a = (v - u)/t", "value": 3 },
+    "hints": ["Use v = u + a t", "Rearrange for a"],
+    "xp_reward": 30
+  },
+  {
+    "id": "OER_OS_003",
+    "branch": "Electromagnetism",
+    "subbranch": "Circuits",
+    "difficulty": "Easy",
+    "source": "OpenStax",
+    "question": "A circuit has V=12 V and R=4 Ω. Find the current I.",
+    "given": { "V": 12, "R": 4 },
+    "answer": { "formula": "I = V/R", "value": 3 },
+    "hints": ["Use Ohm's law: V = IR", "Solve for I"],
+    "xp_reward": 10
+  },
+  {
+    "id": "OER_LIB_010",
+    "branch": "Thermodynamics",
+    "subbranch": "Ideal Gas",
+    "difficulty": "Medium",
+    "source": "LibreTexts",
+    "question": "An ideal gas has P=100 kPa, V=0.05 m^3, n=2 mol. Find temperature T (R=8.314).",
+    "given": { "P": 100000, "V": 0.05, "n": 2, "R": 8.314 },
+    "answer": { "formula": "T = (P*V)/(n*R)", "value": 300.5 },
+    "hints": ["Use PV = nRT", "Solve for T"],
+    "xp_reward": 25
+  },
+  {
+    "id": "OER_KA_021",
+    "branch": "Optics",
+    "subbranch": "Lenses",
+    "difficulty": "Easy",
+    "source": "Khan Academy",
+    "question": "An image forms at 20 cm with an object at 60 cm. Find focal length f (thin lens).",
+    "given": { "do": 0.60, "di": 0.20 },
+    "answer": { "formula": "1/f = 1/do + 1/di; f = 1 / (1/do + 1/di)", "value": 0.15 },
+    "hints": ["Use 1/f = 1/do + 1/di", "Invert to find f"],
+    "xp_reward": 10
+  },
+  {
+    "id": "OER_MIT_042",
+    "branch": "Modern Physics",
+    "subbranch": "Photoelectric Effect",
+    "difficulty": "Hard",
+    "source": "MIT OCW",
+    "question": "Light of frequency 8e14 Hz strikes a metal with work function 2.2 eV. Find max KE (e=1.6e-19 J/eV, h=6.626e-34).",
+    "given": { "f": 8e14, "phi": 2.2, "e": 1.6e-19, "h": 6.626e-34 },
+    "answer": { "formula": "KE = h*f - phi*e", "value": 1.7808e-19 },
+    "hints": ["Einstein's equation: KE = hf - φ", "Convert eV to J"],
+    "xp_reward": 50
+  },
+  {
+    "id": "OER_OS_055",
+    "branch": "Acoustics",
+    "subbranch": "Waves",
+    "difficulty": "Easy",
+    "source": "OpenStax",
+    "question": "A sound wave travels at 340 m/s with wavelength 0.85 m. Find frequency f.",
+    "given": { "v": 340, "lambda": 0.85 },
+    "answer": { "formula": "f = v/lambda", "value": 400 },
+    "hints": ["v = fλ", "Rearrange for f"],
+    "xp_reward": 10
+  },
+  {
+    "id": "OER_LIB_077",
+    "branch": "Astrophysics",
+    "subbranch": "Orbits",
+    "difficulty": "Medium",
+    "source": "LibreTexts",
+    "question": "A satellite orbits Earth at r=7e6 m. Find orbital speed v (GM=3.986e14).",
+    "given": { "GM": 3.986e14, "r": 7e6 },
+    "answer": { "formula": "v = sqrt(GM/r)", "value": 7549.0 },
+    "hints": ["Use circular orbit speed v = sqrt(GM/r)", "Plug in values"],
+    "xp_reward": 25
+  },
+  {
+    "id": "OER_KA_088",
+    "branch": "Condensed Matter",
+    "subbranch": "Resistivity",
+    "difficulty": "Medium",
+    "source": "Khan Academy",
+    "question": "A wire has resistivity 1.7e-8 Ω·m, length 2 m, area 1e-6 m^2. Find resistance R.",
+    "given": { "rho": 1.7e-8, "L": 2, "A": 1e-6 },
+    "answer": { "formula": "R = rho*L/A", "value": 0.034 },
+    "hints": ["R = ρL/A", "Check units"],
+    "xp_reward": 25
+  },
+  {
+    "id": "OER_OS_099",
+    "branch": "Plasma",
+    "subbranch": "Parameters",
+    "difficulty": "Hard",
+    "source": "OpenStax",
+    "question": "Given electron density ne=1e18 m^-3 and temperature Te=10 eV, estimate Debye length λD (ε0=8.85e-12, e=1.6e-19).",
+    "given": { "ne": 1e18, "Te": 10, "eps0": 8.85e-12, "e": 1.6e-19 },
+    "answer": { "formula": "lambdaD = sqrt(eps0*Te*e/(ne*e^2))", "value": 2.352e-5 },
+    "hints": ["Use λD = sqrt(ε0 kT / (ne e^2)) and kT≈Te·e", "Mind SI units"],
+    "xp_reward": 50
+  },
+  {
+    "id": "OER_COMP_120",
+    "branch": "Computational Physics",
+    "subbranch": "Numerical Methods",
+    "difficulty": "Expert",
+    "source": "MIT OCW",
+    "question": "Approximate ∫_0^1 x^2 dx using the midpoint rule with N=100 intervals. What value do you expect numerically?",
+    "given": { "N": 100 },
+    "answer": { "formula": "I ≈ 1/3", "value": 0.3333333333 },
+    "hints": ["Exact integral is 1/3", "Midpoint rule converges quickly for polynomials"],
+    "xp_reward": 100
+  }
+]

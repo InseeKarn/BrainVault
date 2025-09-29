@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login • BrainVault</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <strong>🧠 BrainVault</strong>
+    <a href="./index.html">Home</a>
+    <a href="./docs.html">Docs</a>
+    <a href="./register.html">Register</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="card" style="max-width:420px; margin: 24px auto;">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label>Email</label>
+      <input type="email" id="login-email" required placeholder="you@example.com" />
+      <label>Password</label>
+      <input type="password" id="login-password" required placeholder="••••••••" />
+      <button class="btn" type="submit" style="margin-top:12px; width:100%">Login</button>
+    </form>
+    <div style="display:flex; gap:8px; margin-top:12px;">
+      <button class="btn secondary" id="login-google" disabled>Continue with Google (placeholder)</button>
+      <button class="btn secondary" id="login-github" disabled>GitHub (placeholder)</button>
+    </div>
+    <p class="small" style="margin-top:8px;">No account? <a href="./register.html">Create one</a>.</p>
+    <div id="login-status" class="small"></div>
+  </div>
+</main>
+<script src="./js/auth.js"></script>
+</body>
+</html>

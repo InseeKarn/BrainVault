@@ -1,0 +1,861 @@
+/* BrainVault Dark Comic Book Style! 🦇 */
+:root {
+  --bg: #0f0f0f;
+  --bg-gradient: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+  --panel: #1e1e2e;
+  --text: #ffffff;
+  --muted: #cbd5e0;
+  --primary: #ff6b6b;
+  --secondary: #4ecdc4;
+  --accent: #45b7d1;
+  --success: #51cf66;
+  --danger: #ff5722;
+  --warning: #ffa726;
+  --comic-blue: #00d4ff;
+  --comic-red: #ff3366;
+  --comic-yellow: #ffeb3b;
+  --comic-green: #00ff88;
+  --comic-purple: #9c27b0;
+  --comic-pink: #ff4081;
+  --shadow-color: #000;
+  --outline-width: 3px;
+  --bubble-bg: #2d2d44;
+  --bubble-border: #f8fafc;
+  
+  /* Dark theme specific colors */
+  --dark-surface: #252540;
+  --dark-surface-variant: #2a2a42;
+  --neon-glow: #ffffff;
+  --cyber-accent: #ff0080;
+  --electric-blue: #00bfff;
+}
+/* Comic Book Base Styles */
+* { box-sizing: border-box; }
+
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  background: var(--bg-gradient);
+  color: var(--text); 
+  font-family: 'Comic Neue', 'Bangers', 'Press Start 2P', cursive, system-ui, sans-serif;
+  font-weight: 600;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header { 
+  background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-surface-variant) 100%);
+  border: var(--outline-width) solid var(--neon-glow);
+  box-shadow: 0 6px 0 var(--shadow-color), inset 0 1px 0 rgba(0, 255, 136, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+  animation: headerShine 3s ease-in-out infinite;
+}
+
+@keyframes headerShine {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: -100%; }
+}
+
+nav { 
+  display: flex; 
+  gap: 16px; 
+  align-items: center; 
+  padding: 16px 24px;
+  position: relative;
+}
+
+nav a { 
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+nav a:hover, nav a.active { 
+  background: var(--neon-glow);
+  color: var(--shadow-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--shadow-color), 0 0 20px var(--neon-glow);
+  text-shadow: 0 0 10px var(--shadow-color);
+}
+/* Comic Book Layout */
+.container { 
+  max-width: 1200px; 
+  margin: 24px auto; 
+  padding: 0 20px;
+}
+
+.hero { 
+  display: flex; 
+  gap: 32px; 
+  align-items: center; 
+  justify-content: space-between;
+  position: relative;
+}
+
+.hero .title { 
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Dark Comic Book Cards */
+.card { 
+  background: linear-gradient(135deg, var(--panel), var(--dark-surface));
+  border: var(--outline-width) solid var(--neon-glow);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 6px 6px 0 var(--shadow-color), inset 0 1px 0 rgba(0, 255, 136, 0.2);
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 255, 136, 0.05), transparent 60%);
+  z-index: 0;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 9px 9px 0 var(--shadow-color), 0 0 30px rgba(0, 255, 136, 0.3), inset 0 1px 0 rgba(0, 255, 136, 0.4);
+  border-color: var(--electric-blue);
+}
+
+/* Speech Bubble Cards */
+.card.speech-bubble {
+  border-radius: 30px;
+  background: var(--bubble-bg);
+  position: relative;
+}
+
+.card.speech-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: var(--bubble-bg);
+  border-bottom: 0;
+}
+
+.card.speech-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 27px;
+  width: 0;
+  height: 0;
+  border: 18px solid transparent;
+  border-top-color: var(--shadow-color);
+  border-bottom: 0;
+  z-index: -1;
+}
+.grid { display: grid; gap: 16px; }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+/* Comic Book Buttons */
+.btn { 
+  background: var(--primary);
+  color: white;
+  border: var(--outline-width) solid var(--shadow-color);
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.btn.secondary { 
+  background: var(--secondary);
+}
+
+.btn.success { 
+  background: var(--success);
+}
+
+.btn.danger { 
+  background: var(--danger);
+}
+
+.btn:disabled { 
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+/* Dark Theme Superhero Button Styles */
+.btn-super {
+  background: linear-gradient(45deg, var(--neon-glow), var(--electric-blue));
+  color: var(--shadow-color);
+  border: 4px solid var(--shadow-color);
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-weight: 900;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.2);
+  box-shadow: 8px 8px 0 var(--shadow-color), 0 0 40px var(--neon-glow);
+  position: relative;
+  overflow: hidden;
+  animation: neonPulse 2s ease-in-out infinite alternate;
+}
+
+.btn-super::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-super:hover::before {
+  left: 100%;
+}
+
+.btn-super:hover {
+  transform: translateY(-3px);
+  box-shadow: 12px 12px 0 var(--shadow-color), 0 0 60px var(--neon-glow);
+  animation: neonPulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 8px 8px 0 var(--shadow-color), 0 0 40px var(--neon-glow); }
+  100% { box-shadow: 8px 8px 0 var(--shadow-color), 0 0 60px var(--neon-glow), 0 0 80px rgba(0, 255, 136, 0.3); }
+}
+
+/* Comic Book Forms */
+input, select, textarea { 
+  background: var(--panel);
+  border: var(--outline-width) solid var(--shadow-color);
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 15px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: inset 2px 2px 4px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.2), inset 2px 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+label { font-size: 14px; color: var(--muted); }
+.small { font-size: 13px; color: var(--muted); }
+.small strong { color: var(--text); }
+
+p, li { line-height: 1.7; }
+
+a { color: var(--electric-blue); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--comic-blue); }
+.list { list-style: none; padding: 0; margin: 0; }
+.list li { padding: 8px 0; border-bottom: 1px dashed #1f2937; }
+.badge { display: inline-block; background: #1f2937; border: 1px solid #334155; color: var(--text); padding: 6px 10px; border-radius: 999px; margin: 4px 6px 0 0; font-size: 12px; }
+.step { border: 1px dashed #334155; padding: 12px; border-radius: 8px; margin-bottom: 10px; }
+.feedback.ok { color: var(--success); }
+.feedback.error { color: var(--danger); }
+footer { opacity: 0.7; font-size: 12px; padding: 16px; text-align: center; }
+
+/* Comic style buttons and cards */
+.btn.comic { position: relative; border: 2px solid #0b1022; outline: 2px solid #000; box-shadow: 3px 3px 0 #000; transition: transform 0.05s ease, box-shadow 0.05s ease; }
+.btn.comic:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 #000; }
+.btn.comic:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 #000; }
+.card.comic { border: 2px solid #0b1022; outline: 2px solid #000; box-shadow: 6px 6px 0 #000; }
+
+/* Variable highlights */
+.code-var { color: #cbd5e1; }
+.code-var.given { color: var(--accent); font-weight: 600; }
+.var-input.given { border-color: var(--accent); box-shadow: inset 0 0 0 1px rgba(34,211,238,0.35); }
+
+/* Tabs */
+.tabbar { display:flex; gap:8px; margin-bottom:8px; }
+.tabbar button { background:#1f2937; border:1px solid #334155; color:var(--text); padding:6px 10px; border-radius:6px; cursor:pointer; }
+.tabbar button.active { border-color: var(--accent); color: var(--accent); }
+
+/* Comic Book Checkbox Grid for Branch Selection */
+.checkbox-grid { 
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.checkbox-tile { 
+  background: var(--panel);
+  border: 3px solid var(--shadow-color);
+  border-radius: 20px;
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  position: relative;
+  text-align: center;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  overflow: hidden;
+}
+
+.checkbox-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.1), transparent 50%);
+  z-index: 0;
+}
+
+.checkbox-tile input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-tile label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.branch-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.3));
+}
+
+.branch-name {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+}
+
+.checkbox-tile:hover {
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.checkbox-tile.selected {
+  background: linear-gradient(135deg, var(--comic-yellow), var(--accent));
+  border-color: var(--primary);
+  box-shadow: 6px 6px 0 var(--primary);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.checkbox-tile.selected .branch-name {
+  color: var(--shadow-color);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+  font-weight: 800;
+}
+
+.checkbox-tile.selected::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--primary);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  z-index: 3;
+}
+
+/* Branch specific colors */
+.checkbox-tile[data-branch="mechanics"] { border-color: #dc2626; }
+.checkbox-tile[data-branch="mechanics"].selected { background: linear-gradient(135deg, #fecaca, #dc2626); }
+
+.checkbox-tile[data-branch="thermodynamics"] { border-color: #ea580c; }
+.checkbox-tile[data-branch="thermodynamics"].selected { background: linear-gradient(135deg, #fed7aa, #ea580c); }
+
+.checkbox-tile[data-branch="electromagnetism"] { border-color: #2563eb; }
+.checkbox-tile[data-branch="electromagnetism"].selected { background: linear-gradient(135deg, #dbeafe, #2563eb); }
+
+.checkbox-tile[data-branch="optics"] { border-color: #7c3aed; }
+.checkbox-tile[data-branch="optics"].selected { background: linear-gradient(135deg, #e9d5ff, #7c3aed); }
+
+.checkbox-tile[data-branch="modern physics"] { border-color: #059669; }
+.checkbox-tile[data-branch="modern physics"].selected { background: linear-gradient(135deg, #d1fae5, #059669); }
+
+.checkbox-tile[data-branch="acoustics"] { border-color: #0891b2; }
+.checkbox-tile[data-branch="acoustics"].selected { background: linear-gradient(135deg, #cffafe, #0891b2); }
+/* Comic Book Dashboard Styles */
+.main-content { 
+  padding-top: 0;
+  position: relative;
+}
+
+/* Welcome Section */
+.welcome-section { 
+  background: var(--bg-gradient);
+  padding: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 20%, var(--neon-glow) 1px, transparent 1px),
+    radial-gradient(circle at 60% 80%, var(--electric-blue) 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, var(--cyber-accent) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 100px 100px;
+  opacity: 0.15;
+  z-index: 0;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.welcome-grid { 
+  display: grid;
+  grid-template-columns: 1fr 450px;
+  gap: 50px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-text h1 { 
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 0 20px 0;
+  text-shadow: 4px 4px 0 var(--shadow-color);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.1;
+}
+
+.welcome-text p { 
+  font-size: 1.3rem;
+  color: var(--muted);
+  margin-bottom: 40px;
+  font-weight: 600;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.8);
+}
+
+/* Comic Book Quick Stats */
+.quick-stats { 
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.stat-item { 
+  text-align: center;
+  background: var(--panel);
+  border: var(--outline-width) solid var(--shadow-color);
+  border-radius: 20px;
+  padding: 16px 20px;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+  min-width: 120px;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.stat-value { 
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--primary);
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.3);
+  display: block;
+}
+
+.stat-label { 
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Comic Book Action Buttons */
+.action-buttons { 
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-primary { 
+  background: linear-gradient(45deg, var(--primary), var(--comic-red));
+  color: white;
+  padding: 16px 32px;
+  border: var(--outline-width) solid var(--shadow-color);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.3s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover { 
+  transform: translateY(-3px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.btn-secondary { 
+  background: var(--secondary);
+  color: white;
+  padding: 16px 32px;
+  border: var(--outline-width) solid var(--shadow-color);
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover { 
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+.btn-outline { 
+  background: transparent;
+  border: var(--outline-width) solid var(--primary);
+  color: var(--primary);
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  box-shadow: 2px 2px 0 var(--primary);
+}
+
+.btn-outline:hover { 
+  background: var(--primary);
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  text-shadow: 1px 1px 0 var(--shadow-color);
+}
+
+/* Level Progress Card */
+.level-progress-card { background: var(--panel); border: 1px solid #1f2937; border-radius: 12px; padding: 24px; }
+.level-progress-card h3 { margin: 0 0 16px 0; font-size: 1.25rem; }
+.progress-info { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.875rem; color: var(--muted); }
+.progress-bar { width: 100%; height: 8px; background: #1f2937; border-radius: 4px; overflow: hidden; margin-bottom: 12px; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 4px; transition: width 0.3s ease; }
+
+/* Activity Section */
+.activity-section, .quick-access-section, .leaderboard-preview-section { padding: 40px 0; }
+.activity-section h2, .quick-access-section h2, .leaderboard-preview-section h2 { font-size: 1.75rem; margin-bottom: 24px; }
+.activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.activity-card { background: var(--panel); border: 1px solid #1f2937; border-radius: 12px; padding: 24px; }
+.activity-card h3 { margin: 0 0 16px 0; font-size: 1.25rem; }
+.progress-stats { display: flex; flex-direction: column; gap: 12px; }
+.progress-item { display: flex; justify-content: space-between; align-items: center; }
+.progress-item span { color: var(--muted); }
+.progress-item strong { color: var(--accent); }
+
+/* Badge List */
+.badge-list { display: flex; flex-direction: column; gap: 12px; }
+.badge-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: #0b1022; border-radius: 8px; }
+.badge-icon { font-size: 1.5rem; }
+.badge-item strong { color: var(--accent); margin-bottom: 4px; display: block; }
+.badge-item p { margin: 0; font-size: 0.875rem; color: var(--muted); }
+.no-badges { text-align: center; color: var(--muted); padding: 24px; }
+
+/* Comic Book Quick Access Grid */
+.quick-access-grid { 
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.quick-card { 
+  background: var(--panel);
+  border: 4px solid var(--shadow-color);
+  border-radius: 25px;
+  padding: 30px 20px;
+  text-decoration: none;
+  color: #1f2937;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  box-shadow: 8px 8px 0 var(--shadow-color);
+  overflow: hidden;
+}
+
+.quick-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(255,255,255,0.1) 70%);
+  z-index: 0;
+}
+
+.quick-card:hover { 
+  transform: translateY(-6px) rotate(1deg);
+  box-shadow: 12px 12px 0 var(--shadow-color);
+}
+
+.quick-card.easy {
+  background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+  border-color: var(--success);
+  box-shadow: 8px 8px 0 var(--success);
+}
+
+.quick-card.easy:hover {
+  box-shadow: 12px 12px 0 var(--success);
+}
+
+.quick-card.medium {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-color: var(--warning);
+  box-shadow: 8px 8px 0 var(--warning);
+}
+
+.quick-card.medium:hover {
+  box-shadow: 12px 12px 0 var(--warning);
+}
+
+.quick-card.hard {
+  background: linear-gradient(135deg, #fecaca, #fca5a5);
+  border-color: var(--danger);
+  box-shadow: 8px 8px 0 var(--danger);
+}
+
+.quick-card.hard:hover {
+  box-shadow: 12px 12px 0 var(--danger);
+}
+
+.quick-card.expert {
+  background: linear-gradient(135deg, #c7d2fe, #a5b4fc);
+  border-color: var(--comic-purple);
+  box-shadow: 8px 8px 0 var(--comic-purple);
+}
+
+.quick-card.expert:hover {
+  box-shadow: 12px 12px 0 var(--comic-purple);
+}
+
+.card-icon { 
+  font-size: 3rem;
+  margin-bottom: 16px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(2px 2px 0 var(--shadow-color));
+}
+
+.quick-card h3 { 
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 rgba(255,255,255,0.8);
+  position: relative;
+  z-index: 1;
+}
+
+.quick-card p { 
+  margin: 0 0 20px 0;
+  color: #1f2937;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.card-reward { 
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--shadow-color);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  z-index: 2;
+  transform: rotate(-10deg);
+}
+
+/* POW! BAM! Effects */
+.quick-card::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 30px;
+  height: 30px;
+  background: var(--comic-yellow);
+  border: 2px solid var(--shadow-color);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+
+.quick-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Leaderboard Preview */
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.leaderboard-preview { background: var(--panel); border: 1px solid #1f2937; border-radius: 12px; padding: 24px; }
+.leaderboard-list { display: flex; flex-direction: column; gap: 12px; }
+.leaderboard-item { display: grid; grid-template-columns: 60px 1fr 100px 120px; gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #1f2937; }
+.leaderboard-item:last-child { border-bottom: none; }
+.leaderboard-item .rank { font-weight: 700; color: var(--accent); }
+.leaderboard-item .username { font-weight: 600; }
+.leaderboard-item .level { color: var(--muted); font-size: 0.875rem; }
+.leaderboard-item .xp { color: var(--accent); font-weight: 600; text-align: right; }
+.loading { text-align: center; color: var(--muted); padding: 40px; }
+
+/* Footer */
+.footer { background: #0b1022; border-top: 1px solid #1f2937; padding: 40px 0 20px 0; margin-top: 60px; }
+.footer-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 30px; }
+.footer-section h3, .footer-section h4 { margin: 0 0 16px 0; }
+.footer-section h3 { font-size: 1.25rem; }
+.footer-section h4 { font-size: 1rem; color: var(--accent); }
+.footer-section p { color: var(--muted); }
+.footer-section ul { list-style: none; padding: 0; margin: 0; }
+.footer-section ul li { margin-bottom: 8px; }
+.footer-section ul li a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-section ul li a:hover { color: var(--accent); }
+.footer-bottom { border-top: 1px solid #1f2937; padding-top: 20px; text-align: center; }
+.footer-bottom p { margin: 0; color: var(--muted); font-size: 0.875rem; }
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .welcome-grid { grid-template-columns: 1fr; gap: 30px; }
+  .quick-access-grid { grid-template-columns: repeat(2, 1fr); }
+  .activity-grid { grid-template-columns: 1fr; }
+  .footer-content { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .welcome-text h1 { font-size: 2rem; }
+  .quick-stats { flex-wrap: wrap; gap: 16px; }
+  .quick-access-grid { grid-template-columns: 1fr; }
+  .action-buttons { flex-direction: column; }
+  .footer-content { grid-template-columns: 1fr; gap: 30px; }
+}

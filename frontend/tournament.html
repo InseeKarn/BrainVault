@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tournament • BrainVault</title>
+  <meta name="description" content="Head-to-head physics tournament: two players, ten shared problems. Score points and win!" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <strong>🧠 BrainVault</strong>
+    <a href="./index.html">Dashboard</a>
+    <a href="./problem_selection.html">Practice</a>
+    <a href="./leaderboard.html">Leaderboard</a>
+    <a href="./profile.html">Profile</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="card">
+    <h2>Head-to-Head Tournament</h2>
+    <p class="small">Two players compete on the same 10 problems. Requires Pro/Ultra.</p>
+    <div class="grid cols-3" style="margin-top:12px;">
+      <div>
+        <label>Branch (optional)</label>
+        <select id="tour-branch">
+          <option value="">Any</option>
+          <option>Mechanics</option>
+          <option>Thermodynamics</option>
+          <option>Electromagnetism</option>
+          <option>Optics</option>
+          <option>Modern Physics</option>
+          <option>Acoustics</option>
+          <option>Astrophysics</option>
+          <option>Condensed Matter</option>
+          <option>Plasma</option>
+          <option>Biophysics</option>
+          <option>Geophysics</option>
+          <option>Computational Physics</option>
+        </select>
+      </div>
+      <div>
+        <label>Difficulty</label>
+        <select id="tour-difficulty">
+          <option>Easy</option>
+          <option selected>Medium</option>
+          <option>Hard</option>
+          <option>Expert</option>
+        </select>
+      </div>
+      <div style="display:flex; align-items:end; gap:8px;">
+        <button class="btn" id="create-btn">Create</button>
+        <input id="join-id" placeholder="Tournament ID" />
+        <button class="btn secondary" id="join-btn">Join</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;" id="tour-panel" hidden>
+    <h3>Tournament <span id="tour-id"></span></h3>
+    <div class="small">Status: <strong id="tour-status">-</strong></div>
+    <div style="margin-top:8px; display:flex; gap:16px; flex-wrap:wrap;">
+      <div class="card" style="min-width:240px;">
+        <h4>Players</h4>
+        <ul class="list" id="players-list"></ul>
+      </div>
+      <div class="card" style="flex:1; min-width:300px;">
+        <h4>Problems</h4>
+        <ol id="problems-list"></ol>
+      </div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px;">
+      <button class="btn" id="start-btn">Start</button>
+      <button class="btn secondary" id="refresh-btn">Refresh</button>
+    </div>
+  </div>
+</main>
+<script src="./js/auth.js"></script>
+<script src="./js/tournament.js"></script>
+</body>
+</html>

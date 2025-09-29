@@ -1,0 +1,18 @@
+{
+  "branch": "astrophysics",
+  "total_problems": 500,
+  "difficulty_breakdown": {
+    "easy": 150,
+    "medium": 200,
+    "hard": 100,
+    "expert": 50
+  },
+  "generated_at": "2025-09-29T08:00:21.425Z",
+  "generator_version": "1.0.0",
+  "distribution": {
+    "easy": 150,
+    "medium": 200,
+    "hard": 100,
+    "expert": 50
+  }
+}

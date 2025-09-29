@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workspace • BrainVault</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <strong>🧠 BrainVault</strong>
+    <a href="./problem_selection.html">Back to Selection</a>
+    <a href="./docs.html">Docs</a>
+    <a href="./hint_store.html" style="margin-left:auto;">Hint Store</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="grid cols-2">
+    <div class="card" id="problem-details">
+      <h2 id="problem-title">Problem</h2>
+      <p id="problem-text" class="small"></p>
+      <div id="problem-given" class="small"></div>
+    </div>
+    <div class="card">
+      <h3>Formula Bank</h3>
+      <div id="formula-bank" class="small"></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <h3>Workspace</h3>
+    <div id="steps-container"></div>
+    <button class="btn" id="add-step-btn" style="margin-top:8px;">Add Step</button>
+    <div style="margin-top:12px;">
+      <label>Final Answer</label>
+      <input type="number" id="final-answer" step="any" placeholder="e.g., 3" />
+    </div>
+    <div style="display:flex; gap:8px; margin-top:12px;">
+      <button class="btn success" id="submit-solution-btn">Submit Solution</button>
+      <button class="btn secondary" id="use-hint-btn">Use Hint Token</button>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;" id="feedback-card">
+    <h3>Feedback</h3>
+    <div id="feedback-container" class="small"></div>
+  </div>
+</main>
+<script src="./js/auth.js"></script>
+<script src="./js/workspace_v3.js"></script>
+<script src="./js/submission.js"></script>
+</body>
+</html>

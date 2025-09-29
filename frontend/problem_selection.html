@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice • BrainVault</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<header>
+  <nav>
+    <strong>🧠 BrainVault</strong>
+    <a href="./index.html">Dashboard</a>
+    <a href="./leaderboard.html">Leaderboard</a>
+    <a href="./docs.html">Docs</a>
+    <a href="./profile.html">Profile</a>
+  </nav>
+</header>
+<main class="container">
+  <div class="card comic">
+    <h2>Select Problems</h2>
+    <div class="grid cols-3">
+      <div>
+        <label>Difficulty</label>
+        <select id="difficulty">
+          <option>All Levels</option>
+          <option>Easy</option>
+          <option>Medium</option>
+          <option>Hard</option>
+          <option>Expert</option>
+        </select>
+      </div>
+      <div class="" style="grid-column: span 2;">
+        <label>Branches</label>
+        <div id="branch-grid" class="checkbox-grid"></div>
+        <div style="margin-top:8px; display:flex; gap:8px;">
+          <button class="btn comic" id="select-all-branches">Select All</button>
+          <button class="btn comic" id="clear-branches">Clear</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:12px; display:flex; gap:8px;">
+      <button class="btn success comic" id="start-practice">Start</button>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px;">
+    <h3>Preview</h3>
+    <ul class="list" id="problems-list"></ul>
+  </div>
+</main>
+<script src="./js/auth.js"></script>
+<script src="./js/selection.js"></script>
+</body>
+</html>
